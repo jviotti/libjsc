@@ -2,7 +2,7 @@ CMAKE = cmake
 RMRF = rm -rf
 PRESET = Debug
 
-all: configure
+all: configure build
 
 # TODO: Cannot disable: -DENABLE_API_TESTS=OFF
 # See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
@@ -14,6 +14,9 @@ configure: .always
 		-DENABLE_STATIC_JSC=ON \
 		-DUSE_SYSTEM_MALLOC=ON \
 		-G Ninja
+
+build: .always
+	$(CMAKE) --build ./out --config $(PRESET) --parallel
 
 clean: .always
 	$(RMRF) ./out
