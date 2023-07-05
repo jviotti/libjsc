@@ -7,13 +7,14 @@ all: configure build
 # TODO: Cannot disable: -DENABLE_API_TESTS=OFF
 # See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
 configure: .always
-	$(CMAKE) -S vendor/webkit -B ./out \
-		-DENABLE_FTL_JIT=ON \
-		-DPORT="JSCOnly" \
-		-DCMAKE_BUILD_TYPE=$(PRESET) \
-		-DENABLE_STATIC_JSC=ON \
-		-DUSE_SYSTEM_MALLOC=ON \
-		-G Ninja
+	CC=clang CXX=clang++ \
+		$(CMAKE) -S vendor/webkit -B ./out \
+			-DENABLE_FTL_JIT=ON \
+			-DPORT="JSCOnly" \
+			-DCMAKE_BUILD_TYPE=$(PRESET) \
+			-DENABLE_STATIC_JSC=ON \
+			-DUSE_SYSTEM_MALLOC=ON \
+			-G Ninja
 
 build: .always
 	PYTHONDONTWRITEBYTECODE=1 \
