@@ -2,3 +2,13 @@ LayoutTests
 Websites
 JSTests
 PerformanceTests
+Source/bmalloc
+Source/ThirdParty/capstone
+Source/ThirdParty/ANGLE
+Source/ThirdParty/xdgmime
+Source/ThirdParty/libwebrtc
+Source/WebInspectorUI
+Source/WebCore
+Source/WebKitLegacy
+Source/WebKit
+Source/WebDriver
