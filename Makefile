@@ -6,7 +6,8 @@ all: configure
 
 configure: .always
 	$(CMAKE) -S vendor/webkit -B ./out \
-		-DPORT="GTK" \
+		-DENABLE_FTL_JIT=ON \
+		-DPORT="JSCOnly" \
 		-DCMAKE_BUILD_TYPE=$(PRESET) \
 		-G Ninja
 
