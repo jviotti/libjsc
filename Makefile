@@ -11,6 +11,7 @@ configure: .always
 		$(CMAKE) -S vendor/webkit -B ./out \
 			-DENABLE_FTL_JIT=ON \
 			-DPORT="JSCOnly" \
+			-DENABLE_TOOLS=OFF \
 			-DCMAKE_BUILD_TYPE=$(PRESET) \
 			-DENABLE_STATIC_JSC=ON \
 			-DUSE_SYSTEM_MALLOC=ON \

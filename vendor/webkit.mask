@@ -12,3 +12,4 @@ Source/WebCore
 Source/WebKitLegacy
 Source/WebKit
 Source/WebDriver
+Tools
