@@ -16,7 +16,8 @@ configure: .always
 		-G Ninja
 
 build: .always
-	$(CMAKE) --build ./out --config $(PRESET) --parallel
+	PYTHONDONTWRITEBYTECODE=1 \
+		$(CMAKE) --build ./out --config $(PRESET) --parallel
 
 clean: .always
 	$(RMRF) ./out
