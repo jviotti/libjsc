@@ -5,7 +5,10 @@ PRESET = Debug
 all: configure
 
 configure: .always
-	$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G Ninja -DPORT="GTK"
+	$(CMAKE) -S vendor/webkit -B ./out \
+		-DPORT="GTK" \
+		-DCMAKE_BUILD_TYPE=$(PRESET) \
+		-G Ninja
 
 clean: .always
 	$(RMRF) ./out
