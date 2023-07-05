@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <include href="../gstreamer/jhbuild.modules"/>
+
+  <metamodule id="webkitgtk-minimal-dependencies">
+    <dependencies>
+      <dep package="wpebackend-fdo"/>
+      <dep package="icu"/>
+      <dep package="manette"/>
+      <dep package="libjxl"/>
+      <dep package="libvpx"/>
+      <dep package="glib"/>
+      <dep package="glib-networking"/>
+      <dep package="atk"/>
+      <dep package="at-spi2-atk"/>
+      <if condition-unset="USE_SOUP2">
+        <dep package="libsoup3"/>
+      </if>
+    </dependencies>
+  </metamodule>
+
+  <metamodule id="webkitwpe-minimal-dependencies">
+    <dependencies>
+      <dep package="wpebackend-fdo"/>
+      <dep package="icu"/>
+      <dep package="openxr"/>
+      <dep package="libjxl"/>
+      <dep package="libvpx"/>
+      <dep package="glib"/>
+      <dep package="glib-networking"/>
+      <dep package="atk"/>
+      <dep package="at-spi2-atk"/>
+      <if condition-unset="USE_SOUP2">
+        <dep package="libsoup3"/>
+      </if>
+    </dependencies>
+  </metamodule>
+
+  <!-- Please use http/https to access repositories to be friendly to users stuck behind firewalls. -->
+  <repository type="git" name="github.com"
+      href="https://github.com"/>
+  <repository type="tarball" name="github-tarball"
+      href="https://github.com"/>
+  <repository type="tarball" name="sourceware.org-mirror"
+      href="http://mirrors.kernel.org/sources.redhat.com/"/>
+  <repository type="tarball" name="ftp.gnome.org"
+      href="http://ftp.gnome.org"/>
+  <repository type="tarball" name="download.gnome.org"
+      href="https://download.gnome.org"/>
+  <repository type="git" name="git.gnome.org"
+      href="https://git.gnome.org/browse/"/>
+  <repository type="tarball" name="cairographics.org"
+      href="http://cairographics.org"/>
+  <repository type="tarball" name="freedesktop.org"
+      href="http://www.freedesktop.org"/>
+  <repository type="tarball" name="xorg"
+      href="http://xorg.freedesktop.org"/>
+  <repository type="tarball" name="xmlsoft.org"
+      href="http://xmlsoft.org"/>
+  <repository type="tarball" name="savannah.gnu.org"
+      href="http://download.savannah.gnu.org/releases/"/>
+  <repository type="git" name="freedesktop-git"
+      href="http://anongit.freedesktop.org/git"/>
+ <repository type="tarball" name="dri.freedesktop.org"
+      href="https://dri.freedesktop.org"/>
+  <repository type="tarball" name="mesa.freedesktop.org"
+      href="https://mesa.freedesktop.org"/>
+  <repository type="tarball" name="wayland.freedesktop.org"
+      href="http://wayland.freedesktop.org"/>
+  <repository type="tarball" name="llvm.org"
+      href="http://llvm.org"/>
+  <repository type="tarball" name="webkitgtk-jhbuild-mirror"
+      href="http://webkitgtk.org/jhbuild_mirror/"/>
+  <repository type="tarball" name="gnupg.org"
+      href="https://www.gnupg.org/ftp/gcrypt/"/>
+
+<!-- This moduleset is used when the environment variable WEBKIT_JHBUILD_MODULESET=minimal is set -->
+<!-- Its intended to allow building WebKit using as much as libraries from your distribution as possible -->
+<!-- In order to ensure its minimal, all the modules should have a pkg-config declaration line -->
+
+  <cmake id="libwpe">
+    <branch repo="github-tarball"
+            module="WebPlatformForEmbedded/libwpe/releases/download/${version}/libwpe-${version}.tar.xz"
+            version="1.14.1"
+            hash="sha256:b1d0cdcf0f8dbb494e65b0f7913e357106da9a0d57f4fbb7b9d1238a6dbe9ade"/>
+  </cmake>
+
+  <meson id="wpebackend-fdo">
+    <dependencies>
+      <dep package="libwpe"/>
+    </dependencies>
+    <branch repo="github-tarball"
+            module="Igalia/WPEBackend-fdo/releases/download/${version}/wpebackend-fdo-${version}.tar.xz"
+            version="1.14.2"
+            hash="sha256:93c9766ae9864eeaeaee2b0a74f22cbca08df42c1a1bdb55b086f2528e380d38">
+    </branch>
+  </meson>
+
+  <autotools id="icu" autogen-sh="./source/configure" autogenargs="--disable-samples --enable-weak-threads">
+    <pkg-config>icu-i18n.pc</pkg-config>
+    <branch module="unicode-org/icu/releases/download/release-63-1/icu4c-63_1-src.tgz" version="63.1" checkoutdir="icu"
+            repo="github-tarball"
+            hash="sha256:05c490b69454fce5860b7e8e2821231674af0a11d7ef2febea9a32512998cb9d">
+      <patch file="icudata-stdlibs.patch" strip="1"/>
+    </branch>
+  </autotools>
+
+  <if condition-unset="USE_SOUP2">
+    <meson id="libsoup3" mesonargs="-Dgssapi=disabled -Dvapi=disabled -Dntlm=disabled -Dsysprof=disabled -Dautobahn=disabled -Dpkcs11_tests=disabled">
+      <pkg-config>libsoup-3.0.pc</pkg-config>
+      <dependencies>
+        <dep package="glib"/>
+        <dep package="glib-networking"/>
+        <dep package="libpsl"/>
+      </dependencies>
+      <branch module="/sources/libsoup/3.2/libsoup-${version}.tar.xz"
+              version="3.2.2"
+              repo="download.gnome.org"
+              hash="sha256:83673c685b910fb7d39f1f28eee5afbefb71c05798fc350ac3bf1b885e1efaa1">
+      </branch>
+    </meson>
+  </if>
+
+  <autotools id="libpsl" autogenargs="--enable-runtime=libicu --enable-builtin=libicu">
+    <pkg-config>libpsl.pc</pkg-config>
+    <dependencies>
+      <dep package="icu"/>
+    </dependencies>
+    <branch module="rockdaboot/libpsl/releases/download/libpsl-${version}/libpsl-${version}.tar.gz"
+            version="0.20.2"
+            repo="github-tarball"
+            hash="sha256:f8fd0aeb66252dfcc638f14d9be1e2362fdaf2ca86bde0444ff4d5cc961b560f"/>
+  </autotools>
+
+  <!-- libmanette >= 0.2.4 required for GamePad support -->
+  <meson id="manette" mesonargs="-Dintrospection=false -Dvapi=false">
+    <pkg-config>manette-0.2.pc</pkg-config>
+    <branch repo="ftp.gnome.org"
+            module="/pub/gnome/sources/libmanette/0.2/libmanette-0.2.4.tar.xz"
+            version="0.2.4"
+            hash="sha256:4fe0a4bed6b4c3ae7249d341031c27b32f8d9e0ffb5337d71cbcec7160362cf7"/>
+  </meson>
+
+  <!-- meson 0.56.2+ required to build atk 2.38 -->
+  <distutils id="meson" python3="1">
+    <branch repo="github-tarball"
+            version="0.61.5"
+            module="mesonbuild/meson/releases/download/${version}/meson-${version}.tar.gz"
+            checkoutdir="meson-${version}"
+            hash="sha256:5e9a0d65c1a51936362b9686d1c5e9e184a6fd245d57e7269750ce50c20f5d9a"/>
+  </distutils>
+
+  <!-- OpenXR required for WebXR support -->
+  <cmake id="openxr">
+    <pkg-config>openxr.pc</pkg-config>
+    <branch module="KhronosGroup/OpenXR-SDK/archive/release-${version}.tar.gz" version="1.0.11"
+            checkoutdir="openxr-${version}"
+            repo="github-tarball"
+            hash="sha256:8f28f0f7707487435578264ac18e14af17a5eab2062fc925fe01cd96ed802dce"/>
+  </cmake>
+
+  <!-- libvpx needed for libwebrtc -->
+  <autotools id="libvpx" autogen-template="%(srcdir)s/configure --prefix=%(prefix)s --extra-cflags=-fPIC --extra-cxxflags=-fPIC">
+    <pkg-config>vpx.pc</pkg-config>
+    <branch repo="github-tarball"
+            version="1.10.0"
+            module="webmproject/libvpx/archive/refs/tags/v${version}.tar.gz"
+            checkoutdir="libvpx-${version}"
+            hash="sha256:85803ccbdbdd7a3b03d930187cb055f1353596969c1f92ebec2db839fa4f834a"/>
+  </autotools>
+
+  <meson id="glib"
+         mesonargs="-Dlibmount=disabled -Dselinux=disabled">
+    <pkg-config>glib-2.0.pc</pkg-config>
+    <branch module="/sources/glib/2.72/glib-${version}.tar.xz"
+            version="2.72.4"
+            repo="download.gnome.org"
+            hash="sha256:8848aba518ba2f4217d144307a1d6cb9afcc92b54e5c13ac1f8c4d4608e96f0e">
+    </branch>
+  </meson>
+
+  <meson id="glib-networking">
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+    <branch module="/sources/glib-networking/2.70/glib-networking-${version}.tar.xz" version="2.70.0"
+            repo="download.gnome.org"
+            hash="sha256:66b408e7afa86c582fe38963db56133869ab4b57d34e48ec56aba621940d6f35"/>
+  </meson>
+
+  <!-- atk needed to build with A11y support -->
+  <meson id="atk" mesonargs="-Dintrospection=false">
+      <branch module="/sources/atk/2.38/atk-${version}.tar.xz" version="2.38.0"
+            repo="download.gnome.org"
+            hash="sha256:ac4de2a4ef4bd5665052952fe169657e65e895c5057dffb3c2a810f6191a0c36"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </meson>
+
+  <!-- at-spi2-core needed to build with A11y support -->
+  <meson id="at-spi2-core" mesonargs="-Dintrospection=no -Dx11=no">
+    <branch module="/sources/at-spi2-core/2.44/at-spi2-core-${version}.tar.xz" version="2.44.1"
+            repo="download.gnome.org"
+            hash="sha256:4beb23270ba6cf7caf20b597354d75194d89afb69d2efcf15f4271688ba6f746">
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </meson>
+
+  <!-- at-spi2-atk needed to build with A11y support -->
+  <meson id="at-spi2-atk" mesonargs="">
+      <branch module="/sources/at-spi2-atk/2.38/at-spi2-atk-${version}.tar.xz" version="2.38.0"
+            repo="download.gnome.org"
+            hash="sha256:cfa008a5af822b36ae6287f18182c40c91dd699c55faa38605881ed175ca464f">
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="atk"/>
+      <dep package="at-spi2-core"/>
+    </dependencies>
+  </meson>
+
+  <!-- libjxl required for JPEGXL support -->
+  <cmake id="libjxl"
+         cmakeargs="-DBUILD_TESTING=OFF
+                    -DPROVISION_DEPENDENCIES=ON
+                    -DJPEGXL_ENABLE_FUZZERS=OFF
+                    -DJPEGXL_ENABLE_DEVTOOLS=OFF
+                    -DJPEGXL_ENABLE_TOOLS=OFF
+                    -DJPEGXL_ENABLE_MANPAGES=OFF
+                    -DJPEGXL_ENABLE_BENCHMARK=OFF
+                    -DJPEGXL_ENABLE_EXAMPLES=OFF
+                    -DJPEGXL_ENABLE_JNI=OFF
+                    -DJPEGXL_ENABLE_VIEWERS=OFF
+                    -DJPEGXL_ENABLE_TCMALLOC=OFF
+                    -DJPEGXL_ENABLE_PLUGINS=OFF
+                    -DJPEGXL_ENABLE_COVERAGE=OFF
+                    -DJPEGXL_ENABLE_TRANSCODE_JPEG=OFF
+                    -DJPEGXL_ENABLE_SJPEG=OFF
+                    -DJPEGXL_STATIC=OFF
+                    -DJPEGXL_WARNINGS_AS_ERRORS=OFF
+                    -DJPEGXL_ENABLE_SKCMS=ON">
+    <pkg-config>libjxl.pc</pkg-config>
+    <branch module="libjxl/libjxl.git"
+            version="0.6.1"
+            tag="v0.6.1"
+            checkoutdir="libjxl-0.6.1"
+            repo="github.com">
+      <patch file="libjxl-add-cmake-flag-provision-dependencies.patch" strip="1"/>
+    </branch>
+  </cmake>
+
+</moduleset>

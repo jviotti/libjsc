@@ -1,0 +1,55 @@
+# This configuration file uses the syntax from Python's ConfigParser.
+# The syntax is similar to Windows "INI" files.
+#
+# [section1]
+# key1 = value1
+# key2 = value2
+#
+# Each section entry defines a server where to upload the results.
+# The server should be running this Django app: https://github.com/Igalia/browserperfdash
+#
+# If more than a section entry is defined, the program will try to upload
+# the data to each one of them.
+#
+# The following entries are mandatory for each section
+#
+# 'bot_id'       : The identifier of this bot on the server.
+# 'bot_password' : The password of this bot on the server.
+# 'post_url'     : The POST URL (typically ${BASE_URI}/dash/bot-report)
+#
+# There is a special section named 'settings' where you can specify a
+# list of plans to be run when the flag '--plans-from-config' is passed,
+# or specify default values for different options.
+# The settings that can be configured in this section are:
+#   plan_list = (Optional) list of plans to run when the flag --plans-from-config is specified
+#   timeout = (Optional) default value that will be used if no parameter "--timeout" is specified
+#   count = (Optional) default value that will be used if no parameter "--count" is specified
+#   platform = (Optional) default value that will be used if no parameter "--platform" is specified
+#   browser = (Optional) default value that will be used if no parameter "--browser" is specified
+#   driver = (Optional) default value that will be used if no parameter "--driver" is specified
+#
+
+#
+# Example of configuration file
+#
+
+## Configuration of plans to run and default settings values
+#[settings]
+#plan_list = ares6 dromaeo-cssquery dromaeo-dom dromaeo-jslib jetstream2 jsbench kraken motionmark octane speedometer stylebench sunspider
+#timeout = 900
+#count = 1
+#platform = linux
+#driver = webdriver
+#browser = cog
+
+## Configuration for dashboard browserperfdash.igalia.org
+#[browserperfdash.igalia.org]
+#bot_id = gtk-linux-64-perf-tests
+#bot_password = r4nd0MP4ss
+#post_url = https://browserperfdash.igalia.com/dash/bot-report
+
+## Configuration for dashboard localhost-test
+#[localhost-test]
+#bot_id = testlocalbot
+#bot_password = 123
+#post_url = http://localhost:8000/dash/bot-report

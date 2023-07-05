@@ -1,0 +1,79 @@
+# Copyright (C) 2022 Apple Inc. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1.  Redistributions of source code must retain the above copyright
+#     notice, this list of conditions and the following disclaimer.
+# 2.  Redistributions in binary form must reproduce the above copyright
+#     notice, this list of conditions and the following disclaimer in the
+#     documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY APPLE INC. AND ITS CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL APPLE INC. OR ITS CONTRIBUTORS BE LIABLE FOR
+# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+headers: "ArgumentCodersCocoa.h"
+
+#if ENABLE(CONTENT_FILTERING)
+class WebCore::ContentFilterUnblockHandler {
+    String unblockURLHost()
+    URL unreachableURL()
+#if HAVE(PARENTAL_CONTROLS_WITH_UNBLOCK_HANDLER)
+    Vector<uint8_t> webFilterEvaluatorData()
+#endif
+#if ENABLE(CONTENT_FILTERING_IN_NETWORKING_PROCESS)
+    bool unblockedAfterRequest()
+#endif
+}
+#endif
+
+header: <WebCore/DictionaryPopupInfo.h>
+[CustomHeader] struct WebCore::DictionaryPopupInfoCocoa {
+    RetainPtr<NSDictionary> options;
+    WebCore::AttributedString attributedString;
+};
+
+header: <WebCore/ResourceRequest.h>
+[CustomHeader] struct WebCore::ResourceRequestPlatformData {
+    [SecureCodingAllowed=[NSMutableURLRequest.class, NSURLRequest.class]] RetainPtr<NSURLRequest> m_urlRequest;
+    std::optional<bool> m_isAppInitiated;
+    std::optional<WebCore::ResourceRequestRequester> m_requester;
+    bool m_privacyProxyFailClosedForUnreachableNonMainHosts;
+    bool m_useAdvancedPrivacyProtections;
+};
+
+[Nested] struct WebCore::AttributedString::AttributeValue {
+    std::variant<double, String, URL, Ref<WebCore::Font>, Vector<String>, Vector<double>, RetainPtr<NSParagraphStyle>, RetainPtr<NSPresentationIntent>, RetainPtr<NSTextAttachment>, RetainPtr<NSShadow>, RetainPtr<NSDate>, RetainPtr<PlatformColor>, RetainPtr<CGColorRef>> value;
+}
+
+[Nested] struct WebCore::AttributedString::Range {
+    size_t location
+    size_t length
+};
+
+struct WebCore::AttributedString {
+    String string;
+    [Validator='WebCore::AttributedString::rangesAreSafe(*string, *attributes)'] Vector<std::pair<WebCore::AttributedString::Range, HashMap<String, WebCore::AttributedString::AttributeValue>>> attributes;
+    std::optional<HashMap<String, WebCore::AttributedString::AttributeValue>> documentAttributes;
+};
+
+#if ENABLE(MEDIA_RECORDER)
+struct WebCore::MediaRecorderPrivateOptions {
+    String mimeType;
+    std::optional<unsigned> audioBitsPerSecond;
+    std::optional<unsigned> videoBitsPerSecond;
+    std::optional<unsigned> bitsPerSecond;
+};
+#endif // ENABLE(MEDIA_RECORDER)
+
+[Nested] class WebCore::ProtectionSpace::PlatformData {
+    RetainPtr<NSURLProtectionSpace> nsSpace;
+};

@@ -1,0 +1,399 @@
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS_-Qunused-arguments failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_4213c && [1/2] Building C object CMakeFiles/cmTC_4213c.dir/src.c.o
+FAILED: CMakeFiles/cmTC_4213c.dir/src.c.o 
+/usr/bin/cc   -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE   -DC_COMPILER_SUPPORTS_-Qunused-arguments -Qunused-arguments -o CMakeFiles/cmTC_4213c.dir/src.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Qunused-arguments'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS_-Wno-parentheses-equality failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_ce43a && [1/2] Building C object CMakeFiles/cmTC_ce43a.dir/src.c.o
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: note: unrecognized command-line option '-Wno-parentheses-equality' may have been intended to silence earlier diagnostics
+[2/2] Linking C executable cmTC_ce43a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS_-Qunused-arguments failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c387c && [1/2] Building CXX object CMakeFiles/cmTC_c387c.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_c387c.dir/src.cxx.o 
+/usr/bin/c++   -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions -fno-rtti  -fPIE   -DCXX_COMPILER_SUPPORTS_-Qunused-arguments -Qunused-arguments -o CMakeFiles/cmTC_c387c.dir/src.cxx.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Qunused-arguments'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS_-Wno-parentheses-equality failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_98c73 && [1/2] Building CXX object CMakeFiles/cmTC_98c73.dir/src.cxx.o
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: note: unrecognized command-line option '-Wno-parentheses-equality' may have been intended to silence earlier diagnostics
+[2/2] Linking CXX executable cmTC_98c73
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS_-Wno-mismatched-new-delete failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_24e71 && [1/2] Building C object CMakeFiles/cmTC_24e71.dir/src.c.o
+cc1: warning: command-line option '-Wno-mismatched-new-delete' is valid for C++/ObjC++ but not for C
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+[2/2] Linking C executable cmTC_24e71
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS_-fcolor-diagnostics failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_9c211 && [1/2] Building C object CMakeFiles/cmTC_9c211.dir/src.c.o
+FAILED: CMakeFiles/cmTC_9c211.dir/src.c.o 
+/usr/bin/cc   -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE   -DC_COMPILER_SUPPORTS_-fcolor-diagnostics -fcolor-diagnostics -o CMakeFiles/cmTC_9c211.dir/src.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-fcolor-diagnostics'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS_-fcolor-diagnostics failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b5c26 && [1/2] Building CXX object CMakeFiles/cmTC_b5c26.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_b5c26.dir/src.cxx.o 
+/usr/bin/c++   -Wextra -Wall -pipe -fmax-errors=20 -Wno-odr -Wno-stringop-overread -Wno-stringop-overflow -Wno-nonnull -Wno-array-bounds -Wno-expansion-to-defined -Wno-noexcept-type -Wno-uninitialized -Wno-mismatched-new-delete -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions -fno-rtti  -fPIE   -DCXX_COMPILER_SUPPORTS_-fcolor-diagnostics -fcolor-diagnostics -o CMakeFiles/cmTC_b5c26.dir/src.cxx.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-fcolor-diagnostics'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test ATOMICS_ARE_BUILTIN failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_bbfbe && [1/2] Building C object CMakeFiles/cmTC_bbfbe.dir/src.c.o
+[2/2] Linking C executable cmTC_bbfbe
+FAILED: cmTC_bbfbe 
+: && /usr/bin/cc -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  CMakeFiles/cmTC_bbfbe.dir/src.c.o -o cmTC_bbfbe   && :
+/usr/bin/ld: CMakeFiles/cmTC_bbfbe.dir/src.c.o: in function `compare_and_swap_pair_weak':
+src.c:(.text+0x85): undefined reference to `__atomic_compare_exchange_16'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <stdbool.h>
+#include <stdint.h>
+
+#define COMPILER(FEATURE) (defined COMPILER_##FEATURE  && COMPILER_##FEATURE)
+
+#if defined(__clang__)
+#define COMPILER_CLANG 1
+#endif
+
+#if defined(__GNUC__)
+#define COMPILER_GCC_COMPATIBLE 1
+#endif
+
+#if COMPILER(GCC_COMPATIBLE) && !COMPILER(CLANG)
+#define COMPILER_GCC 1
+#endif
+
+#if defined(_MSC_VER)
+#define COMPILER_MSVC 1
+#endif
+
+#define CPU(_FEATURE) (defined CPU_##_FEATURE && CPU_##_FEATURE)
+
+
+#if COMPILER(GCC_COMPATIBLE)
+/* __LP64__ is not defined on 64bit Windows since it uses LLP64. Using __SIZEOF_POINTER__ is simpler. */
+#if __SIZEOF_POINTER__ == 8
+#define CPU_ADDRESS64 1
+#elif __SIZEOF_POINTER__ == 4
+#define CPU_ADDRESS32 1
+#endif
+#endif
+
+static inline bool compare_and_swap_bool_weak(bool* ptr, bool old_value, bool new_value)
+{
+#if COMPILER(CLANG)
+    return __c11_atomic_compare_exchange_weak((_Atomic bool*)ptr, &old_value, new_value, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#else
+    return __atomic_compare_exchange_n((bool*)ptr, &old_value, new_value, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#endif
+}
+
+#if CPU(ADDRESS64)
+
+typedef __uint128_t pair;
+
+static inline bool compare_and_swap_pair_weak(void* raw_ptr, pair old_value, pair new_value)
+{
+#if COMPILER(CLANG)
+    return __c11_atomic_compare_exchange_weak((_Atomic pair*)raw_ptr, &old_value, new_value, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#else
+    return __atomic_compare_exchange_n((pair*)raw_ptr, &old_value, new_value, true, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#endif
+}
+#endif
+
+static inline bool compare_and_swap_uint64_weak(uint64_t* ptr, uint64_t old_value, uint64_t new_value)
+{
+#if COMPILER(CLANG)
+    return __c11_atomic_compare_exchange_weak((_Atomic uint64_t*)ptr, &old_value, new_value, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#else
+    return __atomic_compare_exchange_n((uint64_t*)ptr, &old_value, new_value, true, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+#endif
+}
+
+int main() {
+    bool y = false;
+    bool expected = true;
+    bool j = compare_and_swap_bool_weak(&y, expected, false);
+#if CPU(ADDRESS64)
+    pair x = 42;
+    bool k = compare_and_swap_pair_weak(&x, 42, 55);
+#endif
+    uint64_t z = 42;
+    bool l = compare_and_swap_uint64_weak(&z, 42, 56);
+    int result = (j ||
+#if CPU(ADDRESS64)
+                  k ||
+#endif
+                  l) ? 0 : 1;
+    return result;
+}
+    
+Determining if the include file pthread_np.h exists failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_3b134 && [1/2] Building C object CMakeFiles/cmTC_3b134.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_3b134.dir/CheckIncludeFile.c.o 
+/usr/bin/cc   -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_3b134.dir/CheckIncludeFile.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: pthread_np.h: No such file or directory
+    1 | #include <pthread_np.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the _aligned_malloc exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_3bb06 && [1/2] Building C object CMakeFiles/cmTC_3bb06.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_3bb06.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_3bb06.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: '_aligned_malloc' undeclared (first use in this function)
+    8 |   return ((int*)(&_aligned_malloc))[argc];
+      |                   ^~~~~~~~~~~~~~~
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _aligned_malloc
+  return ((int*)(&_aligned_malloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strnstr exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_cb17a && [1/2] Building C object CMakeFiles/cmTC_cb17a.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_cb17a.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_cb17a.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'strnstr' undeclared (first use in this function); did you mean 'strstr'?
+    8 |   return ((int*)(&strnstr))[argc];
+      |                   ^~~~~~~
+      |                   strstr
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnstr
+  return ((int*)(&strnstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the pthread_main_np exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_8a8b0 && [1/2] Building C object CMakeFiles/cmTC_8a8b0.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_8a8b0.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_8a8b0.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: pthread_np.h: No such file or directory
+    2 | #include <pthread_np.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread_np.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_main_np
+  return ((int*)(&pthread_main_np))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the MAP_ALIGNED exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_404cd && [1/2] Building C object CMakeFiles/cmTC_404cd.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_404cd.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_404cd.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'MAP_ALIGNED' undeclared (first use in this function)
+    8 |   return ((int*)(&MAP_ALIGNED))[argc];
+      |                   ^~~~~~~~~~~
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef MAP_ALIGNED
+  return ((int*)(&MAP_ALIGNED))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the SHM_ANON exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_62fb4 && [1/2] Building C object CMakeFiles/cmTC_62fb4.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_62fb4.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_62fb4.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'SHM_ANON' undeclared (first use in this function)
+    8 |   return ((int*)(&SHM_ANON))[argc];
+      |                   ^~~~~~~~
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHM_ANON
+  return ((int*)(&SHM_ANON))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the timingsafe_bcmp exist failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_67ea0 && [1/2] Building C object CMakeFiles/cmTC_67ea0.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_67ea0.dir/CheckSymbolExists.c.o 
+/usr/bin/cc -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_67ea0.dir/CheckSymbolExists.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'timingsafe_bcmp' undeclared (first use in this function)
+    8 |   return ((int*)(&timingsafe_bcmp))[argc];
+      |                   ^~~~~~~~~~~~~~~
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+ninja: build stopped: subcommand failed.
+
+
+File /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef timingsafe_bcmp
+  return ((int*)(&timingsafe_bcmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STAT_BIRTHTIME_value failed with the following output:
+Change Dir: /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b87a4 && [1/2] Building C object CMakeFiles/cmTC_b87a4.dir/src.c.o
+FAILED: CMakeFiles/cmTC_b87a4.dir/src.c.o 
+/usr/bin/cc -DHAVE_STAT_BIRTHTIME_value -D_GNU_SOURCE=1  -fdiagnostics-color=always -Wextra -Wall -pipe -fmax-errors=20 -Wno-expansion-to-defined -Wno-uninitialized -Wno-psabi -Wno-misleading-indentation -Wno-maybe-uninitialized -Wundef -Wpointer-arith -Wmissing-format-attribute -Wformat-security -Wcast-align -Wno-tautological-compare  -fno-strict-aliasing -fno-exceptions  -fPIE -o CMakeFiles/cmTC_b87a4.dir/src.c.o -c /home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.c
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/jviotti/Projects/WebKit/WebKitBuild/Release/CMakeFiles/CMakeTmp/src.c:6:34: error: 'struct stat' has no member named 'st_birthtime'
+    6 |   (void)sizeof(((struct stat *)0)->st_birthtime);
+      |                                  ^~
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+

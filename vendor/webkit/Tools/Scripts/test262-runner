@@ -1,0 +1,98 @@
+#!/usr/bin/env perl
+
+# Copyright (C) 2018 Bocoup LLC. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above
+#    copyright notice, this list of conditions and the following
+#    disclaimer.
+# 2. Redistributions in binary form must reproduce the above
+#    copyright notice, this list of conditions and the following
+#    disclaimer in the documentation and/or other materials
+#    provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER "AS IS" AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+# OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+# PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+# TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+# THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+use strict;
+use warnings;
+use 5.8.8;
+
+use FindBin;
+use Config;
+
+sub build_flatpak_args
+{
+    my $type;
+    my $args = ();
+    for my $argv (@_) {
+       next if $argv eq "--no-flatpak-check";
+       next if $argv eq "--wpe" || $argv eq "--gtk";
+       if ($argv eq "--release" || $argv eq "--debug") {
+          $type = ucfirst(substr($argv, 2));
+          next;
+       }
+       $args->{$argv} = "";
+    }
+
+    if (!exists($args->{"--jsc"})) {
+       $args->{"--jsc"} = "/app/webkit/WebKitBuild/$type/bin/jsc";
+    }
+    return %$args;
+}
+
+BEGIN {
+    use lib $FindBin::Bin;
+    use File::Spec::Functions qw(catfile);
+
+    my $want_jhbuild = 0;
+
+    if (defined $ENV{'WEBKIT_JHBUILD'}) {
+        $want_jhbuild = $ENV{'WEBKIT_JHBUILD'};
+    }
+
+    my $osName = $Config{osname};
+    if (!$want_jhbuild && $osName eq "linux" && !grep(/^--no-flatpak-check$/, @ARGV)) {
+        if (eval {require webkitdirs; 1;}) {
+            webkitdirs->import(qw(shouldUseFlatpak runInFlatpak sourceDir));
+            if (shouldUseFlatpak()) {
+                print "Running in flatpak based environment\n";
+                my @command = (File::Spec->catfile(sourceDir(), "Tools", "Scripts", "test262-runner"));
+                # Prevent exec'd test262-runner process from importing
+                # webkitdirs so that it can succeed later on in the Runner
+                # module... Perl. ¯\_(ツ)_/¯
+                push(@ARGV, "--no-flatpak-check");
+                runInFlatpak(@command);
+            }
+        }
+    }
+}
+
+BEGIN {
+    $ENV{DBIC_OVERWRITE_HELPER_METHODS_OK} = 1;
+    $ENV{T262_EXEC_BIN} = "$FindBin::Bin/test262";
+    unshift @INC, "$FindBin::Bin/test262";
+
+    $ENV{LOAD_ROUTES} = 1;
+}
+
+if (grep(/^--no-flatpak-check$/,  @ARGV)) {
+    @ARGV = build_flatpak_args(@ARGV);
+}
+
+use Runner;
+
+Test262::Runner::main();
