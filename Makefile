@@ -9,6 +9,7 @@ configure: .always
 		-DENABLE_FTL_JIT=ON \
 		-DPORT="JSCOnly" \
 		-DCMAKE_BUILD_TYPE=$(PRESET) \
+		-DENABLE_STATIC_JSC=ON \
 		-G Ninja
 
 clean: .always
