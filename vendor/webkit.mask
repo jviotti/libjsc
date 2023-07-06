@@ -38,3 +38,4 @@ Source/ThirdParty/pdfjs
 Source/ThirdParty/qunit
 Source/ThirdParty/Makefile
 Source/ThirdParty/Makefile.shared
+WebKitLibraries
