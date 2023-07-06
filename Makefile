@@ -4,7 +4,6 @@ PRESET = Debug
 
 all: configure build
 
-# TODO: Cannot disable: -DENABLE_API_TESTS=OFF
 # See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
 configure: .always
 	CC=clang CXX=clang++ \
