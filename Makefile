@@ -2,12 +2,14 @@ CMAKE = cmake
 RMRF = rm -rf
 PRESET = Release
 
+CC = clang
+CXX = clang++
+
 all: configure build test
 
 # See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
 configure: .always
-	CC=clang CXX=clang++ \
-		$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G Ninja
+	$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G Ninja
 
 build: .always
 	PYTHONDONTWRITEBYTECODE=1 \
