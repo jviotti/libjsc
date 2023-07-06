@@ -14,6 +14,7 @@ Source/WebCore
 Source/WebKitLegacy
 Source/WebKit
 Source/WebDriver
+Source/WebGPU
 Tools
 .ccls
 .clang-format
@@ -24,3 +25,5 @@ CMakePresets.json
 Introduction.md
 ReadMe.md
 metadata
+Makefile
+Makefile.shared
