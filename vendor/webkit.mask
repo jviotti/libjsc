@@ -2,6 +2,8 @@ LayoutTests
 Websites
 JSTests
 PerformanceTests
+WebDriverTests
+ManualTests
 Source/bmalloc
 Source/ThirdParty/capstone
 Source/ThirdParty/ANGLE
