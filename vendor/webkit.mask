@@ -34,3 +34,7 @@ PlatformGTK.cmake
 PlatformMac.cmake
 PlatformWin.cmake
 PlatformWPE.cmake
+Source/ThirdParty/pdfjs
+Source/ThirdParty/qunit
+Source/ThirdParty/Makefile
+Source/ThirdParty/Makefile.shared
