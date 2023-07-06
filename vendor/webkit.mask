@@ -15,3 +15,11 @@ Source/WebKitLegacy
 Source/WebKit
 Source/WebDriver
 Tools
+.ccls
+.clang-format
+.clangd
+.dir-locals.el
+.editorconfig
+CMakePresets.json
+Introduction.md
+ReadMe.md
