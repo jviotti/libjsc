@@ -17,6 +17,7 @@ Source/WebDriver
 Source/WebGPU
 Configurations
 resources
+WebKit.xcworkspace
 Tools
 .ccls
 .clang-format
