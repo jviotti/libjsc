@@ -30,3 +30,7 @@ ReadMe.md
 metadata
 Makefile
 Makefile.shared
+PlatformGTK.cmake
+PlatformMac.cmake
+PlatformWin.cmake
+PlatformWPE.cmake
