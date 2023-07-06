@@ -1,0 +1,26 @@
+From 52e3fa629465c6857f83d5ad74a2d49e961fe635 Mon Sep 17 00:00:00 2001
+From: Juan Cruz Viotti <jv@jviotti.com>
+Date: Thu, 6 Jul 2023 12:57:24 -0400
+Subject: [PATCH] Force disable ENABLE_API_TESTS
+
+Signed-off-by: Juan Cruz Viotti <jv@jviotti.com>
+---
+ Source/cmake/OptionsJSCOnly.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Source/cmake/OptionsJSCOnly.cmake b/Source/cmake/OptionsJSCOnly.cmake
+index e892b427..2190967a 100644
+--- a/Source/cmake/OptionsJSCOnly.cmake
++++ b/Source/cmake/OptionsJSCOnly.cmake
+@@ -47,7 +47,7 @@ set(ENABLE_WEBGL OFF)
+ if (WIN32)
+     set(ENABLE_API_TESTS OFF)
+ else ()
+-    set(ENABLE_API_TESTS ON)
++    set(ENABLE_API_TESTS OFF)
+ endif ()
+ 
+ if (WTF_CPU_ARM OR WTF_CPU_MIPS)
+-- 
+2.39.2
+

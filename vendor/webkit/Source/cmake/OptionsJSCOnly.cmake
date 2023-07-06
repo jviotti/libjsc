@@ -47,7 +47,7 @@ set(ENABLE_WEBGL OFF)
 if (WIN32)
     set(ENABLE_API_TESTS OFF)
 else ()
-    set(ENABLE_API_TESTS ON)
+    set(ENABLE_API_TESTS OFF)
 endif ()
 
 if (WTF_CPU_ARM OR WTF_CPU_MIPS)

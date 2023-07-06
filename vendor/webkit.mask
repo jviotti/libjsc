@@ -5,10 +5,7 @@ PerformanceTests
 WebDriverTests
 ManualTests
 Source/bmalloc
-Source/ThirdParty/capstone
-Source/ThirdParty/ANGLE
-Source/ThirdParty/xdgmime
-Source/ThirdParty/libwebrtc
+Source/ThirdParty
 Source/WebInspectorUI
 Source/WebCore
 Source/WebKitLegacy
