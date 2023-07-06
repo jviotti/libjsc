@@ -1,0 +1,26 @@
+From 94835a2a595a4122594b96486bc5973ba3457e03 Mon Sep 17 00:00:00 2001
+From: Juan Cruz Viotti <jv@jviotti.com>
+Date: Thu, 6 Jul 2023 14:40:38 -0400
+Subject: [PATCH] Adjust CMAKE_MODULE_PATH
+
+Signed-off-by: Juan Cruz Viotti <jv@jviotti.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index aa99898d..651d4d49 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,7 @@ endif ()
+ # -----------------------------------------------------------------------------
+ # Common configuration
+ #------------------------------------------------------------------------------
+-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/Source/cmake")
++set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Source/cmake")
+ include(WebKitCommon)
+ 
+ # -----------------------------------------------------------------------------
+-- 
+2.39.2
+

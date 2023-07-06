@@ -1,24 +1,20 @@
 CMAKE = cmake
 RMRF = rm -rf
-PRESET = Debug
+PRESET = Release
 
-all: configure build
+all: configure build test
 
 # See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
 configure: .always
 	CC=clang CXX=clang++ \
-		$(CMAKE) -S vendor/webkit -B ./out \
-			-DENABLE_FTL_JIT=ON \
-			-DPORT="JSCOnly" \
-			-DENABLE_TOOLS=OFF \
-			-DCMAKE_BUILD_TYPE=$(PRESET) \
-			-DENABLE_STATIC_JSC=ON \
-			-DUSE_SYSTEM_MALLOC=ON \
-			-G Ninja
+		$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G Ninja
 
 build: .always
 	PYTHONDONTWRITEBYTECODE=1 \
 		$(CMAKE) --build ./out --config $(PRESET) --parallel
+
+test: .always
+	exec ./out/jsc_test
 
 clean: .always
 	$(RMRF) ./out
