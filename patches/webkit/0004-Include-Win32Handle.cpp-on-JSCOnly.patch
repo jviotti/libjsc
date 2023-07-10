@@ -1,0 +1,25 @@
+From 19aa61bf809cb642148a84783422ffc5a1e90408 Mon Sep 17 00:00:00 2001
+From: Juan Cruz Viotti <jv@jviotti.com>
+Date: Mon, 10 Jul 2023 15:50:04 -0400
+Subject: [PATCH] Include Win32Handle.cpp on JSCOnly
+
+Signed-off-by: Juan Cruz Viotti <jv@jviotti.com>
+---
+ Source/WTF/wtf/PlatformJSCOnly.cmake | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Source/WTF/wtf/PlatformJSCOnly.cmake b/Source/WTF/wtf/PlatformJSCOnly.cmake
+index 50ea0dd0..f0ac56e4 100644
+--- a/Source/WTF/wtf/PlatformJSCOnly.cmake
++++ b/Source/WTF/wtf/PlatformJSCOnly.cmake
+@@ -68,6 +68,7 @@ if (WIN32)
+     list(APPEND WTF_SOURCES
+         win/MemoryFootprintWin.cpp
+         win/MemoryPressureHandlerWin.cpp
++        win/Win32Handle.cpp
+     )
+     list(APPEND WTF_PUBLIC_HEADERS
+         win/Win32Handle.h
+-- 
+2.40.1
+
