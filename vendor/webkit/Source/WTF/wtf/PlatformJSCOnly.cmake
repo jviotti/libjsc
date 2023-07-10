@@ -68,6 +68,7 @@ if (WIN32)
     list(APPEND WTF_SOURCES
         win/MemoryFootprintWin.cpp
         win/MemoryPressureHandlerWin.cpp
+        win/Win32Handle.cpp
     )
     list(APPEND WTF_PUBLIC_HEADERS
         win/Win32Handle.h
