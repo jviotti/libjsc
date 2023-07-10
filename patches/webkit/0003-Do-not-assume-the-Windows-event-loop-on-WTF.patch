@@ -1,0 +1,26 @@
+From 877e3eb96c45e828a1643472b0adec5978b9c879 Mon Sep 17 00:00:00 2001
+From: Juan Cruz Viotti <jv@jviotti.com>
+Date: Mon, 10 Jul 2023 15:48:37 -0400
+Subject: [PATCH] Do not assume the Windows event loop on WTF
+
+Signed-off-by: Juan Cruz Viotti <jv@jviotti.com>
+---
+ Source/WTF/wtf/Threading.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Source/WTF/wtf/Threading.cpp b/Source/WTF/wtf/Threading.cpp
+index 09c4797a..45fc04dd 100644
+--- a/Source/WTF/wtf/Threading.cpp
++++ b/Source/WTF/wtf/Threading.cpp
+@@ -484,7 +484,7 @@ void initialize()
+ #if PLATFORM(COCOA)
+         initializeLibraryPathDiagnostics();
+ #endif
+-#if OS(WINDOWS)
++#if USE(WINDOWS_EVENT_LOOP)
+         RunLoop::registerRunLoopMessageWindowClass();
+ #endif
+     });
+-- 
+2.40.1
+
