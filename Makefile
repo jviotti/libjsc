@@ -4,11 +4,18 @@ PRESET = Release
 CC = clang
 CXX = clang++
 
+# See https://stackoverflow.com/a/30906085 \
+!ifndef 0 # \
+GENERATOR = Visual Studio 17 2022 # \
+!else
+GENERATOR = Ninja
+# \
+!endif
+
 all: configure build test
 
-# See vendor/webkit/Source/cmake/OptionsJSCOnly.cmake
 configure: .always
-	$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G Ninja
+	$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G "$(GENERATOR)"
 
 build: .always
 	PYTHONDONTWRITEBYTECODE=1 \
