@@ -1,5 +1,4 @@
 CMAKE = cmake
-RMRF = rm -rf
 PRESET = Release
 
 CC = clang
@@ -19,7 +18,7 @@ test: .always
 	exec ./out/jsc_test
 
 clean: .always
-	$(RMRF) ./out
+	$(CMAKE) -E rm -rf ./out
 
 # For NMake, which doesn't support .PHONY
 .always:
