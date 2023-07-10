@@ -1,8 +1,6 @@
 CMAKE = cmake
 PRESET = Release
 
-PYTHONDONTWRITEBYTECODE = 1
-
 # See https://stackoverflow.com/a/30906085 \
 !ifndef 0 # \
 GENERATOR = Visual Studio 17 2022 # \
@@ -19,6 +17,7 @@ configure: .always
 	$(CMAKE) -S . -B ./out -DCMAKE_BUILD_TYPE=$(PRESET) -G "$(GENERATOR)"
 
 build: .always
+	$(CMAKE) -E env PYTHONDONTWRITEBYTECODE=1 \
 		$(CMAKE) --build ./out --config $(PRESET) --parallel
 
 test: .always
